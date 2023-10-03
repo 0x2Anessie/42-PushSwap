@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acatusse <acatusse@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nessie <nessie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/20 13:12:16 by acatusse          #+#    #+#             */
-/*   Updated: 2023/09/25 17:05:42 by acatusse         ###   ########.fr       */
+/*   Created: 2023/09/20 13:12:16 by nessie            #+#    #+#             */
+/*   Updated: 2023/10/03 17:29:22 by nessie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// Check que la chaîne ne soit composés que de chiffres (0-9)
 int	check_digit(char *str)
 {
 	int	i;
@@ -29,11 +28,6 @@ int	check_digit(char *str)
 	return (1);
 }
 
-// Check que la chaîne soit dans la range traitée par le type int.
-// str > 11, forcément out of range
-// < 10 / égal à INT_MIN / négatif et len=10 forcément dans la range.
-// Si aucun des cas précédents, on compare chiffre par chiffre et si str >
-// ult_int, alors forcément out of range.
 int	check_range(char *str)
 {
 	char	*ult_int;
@@ -60,9 +54,6 @@ int	check_range(char *str)
 	return (0);
 }
 
-// Nb est la string actuellement traitée par ft_error, et argv[i] est la
-// string suivante dans le tableau. On incrémente i tant qu'aucune string ne
-// correspond à nb.
 int	check_double(char **argv, int nb, int i)
 {
 	i++;
@@ -75,9 +66,18 @@ int	check_double(char **argv, int nb, int i)
 	return (0);
 }
 
-// Transforme av en tableau de chaînes grâce à "ft_split" si ac==2 
-// et/ou vérifie à l'aide des fonctions check_* que chaque chaîne du 
-// tableau ne comporte pas d'erreur.
+/**
+ * @brief Fonction erreur: Si deux arguments, utilise ft_split pour diviser l'arg
+ * 		  en tableau de chaînes a chaque présence d'espace.
+ * 		  La fonction vérifie si chaque chaîne est conforme a ce qui est attendu :
+ * 		  - Si elle est bien uniquement composée de chiffres
+ * 		  - Si sa valeur est bien comprise entre INT_MIN et INT_MAX 
+ * 		  - Si le tableau ne comprend pas deux chaînes identiques
+ * 
+ * @return Si une erreur est trouvée :"Error" sur la sortie 2, sortie d'erreur
+ * 		   comme demandé dans le sujet.
+ * 		   Sinon (1).
+ */
 int	ft_error(int argc, char ***argv)
 {
 	int	i;
