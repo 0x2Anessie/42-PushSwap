@@ -31,7 +31,6 @@ int	stacklen(t_stack *stack)
  * @brief Fonction qui dirige les différentes stacks vers les fonctions de tri
  * 		  en fonction du nombre d'arguments.
  * 		  stacklen: calcule la taille de la stack A.
- * 		  checkbackwards: vérifie que la stack A ne soit pas triée à l'envers.
  */
 void	sort_a(t_stack **a, t_stack **b)
 {
