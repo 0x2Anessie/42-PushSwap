@@ -3,18 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   stack_init.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acatusse <acatusse@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nessie <nessie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/20 13:14:23 by acatusse          #+#    #+#             */
-/*   Updated: 2023/10/02 15:23:24 by acatusse         ###   ########.fr       */
+/*   Created: 2023/09/20 13:14:23 by nessie            #+#    #+#             */
+/*   Updated: 2023/10/04 12:24:06 by nessie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// Alloue de la mémoire pour un nouveau nœud "node" de type t_stack.
-// Vérifie l'allocation puis initialise les différents champs
-// du nœud.
 static t_stack	*node_init(int content)
 {
 	t_stack	*node;
@@ -28,8 +25,7 @@ static t_stack	*node_init(int content)
 	return (node);
 }
 
-// Calcule le nombre d'arguments si l'arg n'est pas passe entre guillemets.
-int	nb_arg(int argc, char **argv)
+static int	nb_arg(int argc, char **argv)
 {
 	int	i;
 
@@ -41,11 +37,6 @@ int	nb_arg(int argc, char **argv)
 	return (i);
 }
 
-// node va pointer vers le 1e noeud non indexe de la liste
-// min pointe vers le nœud avec la plus petite valeur qui n'a pas
-// encore été indexé.
-// La fonction renvoie le pointeur vers le nœud non indexé ayant la plus
-// petite valeur.
 static t_stack	*index_init(t_stack **stack_a)
 {
 	t_stack	*node;
@@ -64,21 +55,28 @@ static t_stack	*index_init(t_stack **stack_a)
 	return (min);
 }
 
-// Crée un nouveau nœud pour chaque argument avec la fonction "node_init"
-// et y met la valeur de l'argument passé en int.
-// Le pointeur de la struct new pointe alors vers l'ancien élément
-// ajouté à la pile.
-// Puis la valeur de new est à son tour ajoutée à la pile.
-// Enfin les noeuds sont indexes 1 a 1 dans l'ordre croissant de leurs
-//valeurs.
+/**
+ * @brief Fonction qui initialise de nouveaux noeuds pour chaque valeur passées
+ * 		  en argument.
+ * 		  Une fois crées elle les ajoute à la stack A et leur donne pour index
+ * 		  leur position dans un ordre croissant. Elles seront ensuite triées 
+ * 		  par le reste du programme grace à cet index.
+ * 		  node_init: alloue de la mémoire pour un nouveau noeud, donne la
+ * 				     valeur de l'argument change en int a l'élement nbr et 
+ * 				     initialise les autres éléments du noeud a nul.
+ * 		  index_init: trouve un noeud pas encore indexé et le stock dans min.
+ * 					  la fonction parcours alors la stack A et si un noeud non
+ * 					  indexé a un element nbr plus petit que min, il devient
+ * 					  le nouveau min est est return.
+ */
 void	stack_init(t_stack **stack_a, int argc, char **argv)
 {
 	t_stack	*new;
 	int		i;
 
-	i = 1; // si sans guillemets
+	i = 1;
 	if (argc == 2)
-		i = 0; // si guillemets
+		i = 0;
 	while (argv[i])
 	{
 		new = node_init(ft_atoi(argv[i]));
