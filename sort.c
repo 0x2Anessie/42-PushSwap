@@ -37,7 +37,7 @@ void	sort_a(t_stack **a, t_stack **b)
 	int	len;
 
 	len = stacklen(*a);
-	if (len <= 1)
+	if (len <= 1 || already_sorted(a))
 		return ;
 	else if (len == 2)
 		sa(a);
