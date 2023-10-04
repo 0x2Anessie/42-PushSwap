@@ -68,16 +68,16 @@ int	check_double(char **argv, int nb, int i)
 
 /**
  * @brief Fonction erreur: Si deux arguments, utilise ft_split pour diviser
- * 		  l'arg en tableau de chaînes a chaque présence d'espace.
- * 		  La fonction vérifie si chaque chaîne est conforme à ce qui est
- * 		  attendu:
- * 		  - Si elle est bien uniquement composée de chiffres
- * 		  - Si sa valeur est bien comprise entre INT_MIN et INT_MAX 
- * 		  - Si le tableau ne comprend pas deux chaînes identiques
+ * 	  l'arg en tableau de chaînes a chaque présence d'espace.
+ * 	  La fonction vérifie si chaque chaîne est conforme à ce qui est
+ * 	  attendu:
+ * 		- Si elle est bien uniquement composée de chiffres
+ * 		- Si sa valeur est bien comprise entre INT_MIN et INT_MAX 
+ * 		- Si le tableau ne comprend pas deux chaînes identiques
  * 
  * @return Si une erreur est trouvée :"Error" sur la sortie 2, sortie d'erreur
- * 		   comme demandé dans le sujet.
- * 		   Sinon (1).
+ * 	   comme demandé dans le sujet.
+ * 	   Sinon (1).
  */
 int	ft_error(int argc, char ***argv)
 {
