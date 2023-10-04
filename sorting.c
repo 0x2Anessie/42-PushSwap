@@ -3,17 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   sorting.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acatusse <acatusse@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nessie <nessie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/20 13:12:39 by acatusse          #+#    #+#             */
-/*   Updated: 2023/10/02 15:58:11 by acatusse         ###   ########.fr       */
+/*   Created: 2023/09/20 13:12:39 by nessie            #+#    #+#             */
+/*   Updated: 2023/10/04 18:47:38 by nessie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// Verfie les 5 cas de figure possible.
-// "3 2 1"  /  "2 3 1"  /  "3 1 2"  /  "1 3 2"  /  "2 1 3"
+/**
+ * @brief Verifie les 5 cas possibles.
+ * 		  3 2 1"  /  "2 3 1"  /  "3 1 2"  /  "1 3 2"  /  "2 1 3"
+ */
 void	three_values(t_stack **a)
 {
 	if ((*a)->i < (*a)->p->i && (*a)->p->i < (*a)-> \
@@ -39,10 +41,12 @@ void	three_values(t_stack **a)
 		sa(a);
 }
 
-// Trouve l'element avec le plus petit indice car min indice = min value
-// grace a index_init.
-// Met cet element en haut de la pile a puis le push sur la pile b.
-// On trie la pile a et on renvoie le minus au sommet de la pile a
+/**
+ * @brief Trouve le plus petit indice, le met en haut de la stack A
+ * 		  puis le push sur la stack B.
+ * 		  La pile est triée avec three_values, puis le plus petit indice
+ * 		  est push en haut de a stack A.
+ */
 void	four_values(t_stack **a, t_stack **b)
 {
 	t_stack	*tmp;
@@ -68,8 +72,11 @@ void	four_values(t_stack **a, t_stack **b)
 	pa(a, b);
 }
 
-// Trouve l'indice 1 et le bouge pour trier les 3 restants, puis le remet.
-static void	five__values_utils(t_stack **a, t_stack **b)
+/**
+ * @brief Même brief que pour four_values mais push sur la stack B la DEUXIEME
+ * 		  plus petite valeur.
+ */
+static void	five_values_utils(t_stack **a, t_stack **b)
 {
 	t_stack	*tmp;
 	int		i;
@@ -94,12 +101,10 @@ static void	five__values_utils(t_stack **a, t_stack **b)
 	pa(a, b);
 }
 
-// Trouve l'element avec le plus petit indice car min indice = min value
-// grace a index_init.
-// Met cet element en haut de la pile a puis le push sur la pile b.
-// Utilise la fonction fourorfive pour mettre l'indice 1 dans la pile b aussi,
-// trie les 3 restants avec tree, remet l'indice 1.
-// Remet l'indice 0 dans la pile a.
+/**
+ * @brief Fonctionne comme four_values mais utilise five_values_utils pour
+ * 		  trier les 4 int restants.
+ */
 void	five_values(t_stack **a, t_stack **b)
 {
 	t_stack	*tmp;
@@ -123,31 +128,45 @@ void	five_values(t_stack **a, t_stack **b)
 	if (i == 2 || i == 3)
 		sa(a);
 	pb(b, a);
-	five__values_utils(a, b);
+	five_values_utils(a, b);
 	pa(a, b);
 }
 
-// Tant que la pile a n'est pas triee, 
+/**
+ * @brief Méthode de tri bit par bit en commencant par le LSB.
+ * 		  Le tri s'execute tant que la stack A n'est pas completement triée.
+ * 		  	Tant que tous les éléments n'ont pas été traités, on vérrifie le
+ * 		  	bit en cours du dernier élément de la pile.
+ * 		  		Si ce bit est égal à 1, on rotate la stack A.
+ * 		  		Si ce bit est égal à 0, on push son élément sur la stack B.
+ * 			Ensuite on vide la stack B dans la stack A et on incrémente bit
+ * 			pour recommencer tout ce processus avec le prochain LSB.
+ * 
+ * @var LEN: contient la taille de la stack A.
+ * @var BIT: détermine quel bit on va regarder pour trier, init a 0 pour
+ * 			 commencer par le LSB.
+ * @var STACK: sert à se balader dans la stack A.
+ */
 void	radix(t_stack **a, t_stack **b)
 {
 	t_stack	*stack;
+	int		i;
 	int		len_a;
 	int		bit;
-	int		index;
 
 	len_a = stacklen(*a);
 	bit = 0;
-	while (!checkbackwards(a))
+	while (!already_sorted(a))
 	{
 		stack = *a;
-		index = 0;
-		while (index < len_a && stack && !checkbackwards(a))
+		i = 0;
+		while (i < len_a && stack)
 		{
 			if ((last_node(*a)->i >> bit) & 1)
 				ra(a);
 			else
 				pb(b, a);
-			index++;
+			i++;
 		}
 		while (!checkemptystack(b))
 			pa(a, b);
