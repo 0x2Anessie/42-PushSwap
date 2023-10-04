@@ -3,16 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nessie <nessie@student.42.fr>              +#+  +:+       +#+        */
+/*   By: nessie  <nessie@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 13:14:31 by nessie            #+#    #+#             */
-/*   Updated: 2023/10/03 19:41:14 by nessie           ###   ########.fr       */
+/*   Updated: 2023/10/04 11:43:27 by nessie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// Free chaque noeud de la stack A.
+/**
+ * @brief Free chaque noeud de la stack A.
+ */
 void	clean_stack(t_stack **a)
 {
 	t_stack	*tmp;
@@ -27,7 +29,9 @@ void	clean_stack(t_stack **a)
 	}
 }
 
-// Vérifie qu'il y ait une stack A.
+/**
+ * @brief Vérifie qu'il y ait une stack A.
+ */
 int	checkemptystack(t_stack **stack)
 {
 	if (!*stack)
@@ -36,7 +40,9 @@ int	checkemptystack(t_stack **stack)
 		return (0);
 }
 
-// Avance dans les noeuds jusqu'a atteindre le dernier et le renvoie.
+/**
+ * @brief Avance dans les noeuds jusqu'a atteindre le dernier et le renvoie.
+ */
 t_stack	*last_node(t_stack *stack)
 {
 	while (stack->p)
@@ -44,8 +50,10 @@ t_stack	*last_node(t_stack *stack)
 	return (stack);
 }
 
-// Ajoute un nouveau noeud à la fin d'une stack.
-// Si la stack est vide, new_node devient le 1er et unique élément.
+/**
+ * @brief Ajoute un nouveau noeud à la fin d'une stack.
+ *        Si la stack est vide, new_node devient le 1er et unique élément.
+ */
 void	new_last_node(t_stack **stack, t_stack *new_node)
 {
 	t_stack	*last;
@@ -62,7 +70,9 @@ void	new_last_node(t_stack **stack, t_stack *new_node)
 	}
 }
 
-// Vérifie que la stack A ne soit pas triée par orde décroissant.
+/**
+ * @brief Vérifie que la stack A ne soit pas triée par orde décroissant.
+ */
 int	checkbackwards(t_stack **a)
 {
 	t_stack	*stack;
