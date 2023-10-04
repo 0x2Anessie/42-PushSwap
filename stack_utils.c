@@ -73,7 +73,7 @@ void	new_last_node(t_stack **stack, t_stack *new_node)
 /**
  * @brief Vérifie que la stack A ne soit pas triée par orde décroissant.
  */
-int	checkbackwards(t_stack **a)
+int	already_sorted(t_stack **a)
 {
 	t_stack	*stack;
 
