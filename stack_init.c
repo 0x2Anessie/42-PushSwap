@@ -57,17 +57,17 @@ static t_stack	*index_init(t_stack **stack_a)
 
 /**
  * @brief Fonction qui initialise de nouveaux noeuds pour chaque valeur passées
- * 		  en argument.
- * 		  Une fois crées elle les ajoute à la stack A et leur donne pour index
- * 		  leur position dans un ordre croissant. Elles seront ensuite triées 
- * 		  par le reste du programme grace à cet index.
- * 		  node_init: alloue de la mémoire pour un nouveau noeud, donne la
- * 				     valeur de l'argument change en int a l'élement nbr et 
- * 				     initialise les autres éléments du noeud a nul.
- * 		  index_init: trouve un noeud pas encore indexé et le stock dans min.
- * 					  la fonction parcours alors la stack A et si un noeud non
- * 					  indexé a un element nbr plus petit que min, il devient
- * 					  le nouveau min est est return.
+ * 	  en argument.
+ * 	  Une fois crées elle les ajoute à la stack A et leur donne pour index
+ * 	  leur position dans un ordre croissant. Elles seront ensuite triées 
+ * 	  par le reste du programme grace à cet index.
+ * 	       node_init: alloue de la mémoire pour un nouveau noeud, donne la
+ * 			  valeur de l'argument change en int a l'élement nbr et 
+ * 			  initialise les autres éléments du noeud a nul.
+ * 	       index_init: trouve un noeud pas encore indexé et le stock dans min.
+ * 			   la fonction parcours alors la stack A et si un noeud non
+ * 			   indexé a un element nbr plus petit que min, il devient
+ * 			   le nouveau min est est return.
  */
 void	stack_init(t_stack **stack_a, int argc, char **argv)
 {
