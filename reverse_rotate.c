@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   reverse_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acatusse <acatusse@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nessie <nessie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/20 13:15:11 by acatusse          #+#    #+#             */
-/*   Updated: 2023/10/02 15:39:30 by acatusse         ###   ########.fr       */
+/*   Created: 2023/09/20 13:15:11 by nessie            #+#    #+#             */
+/*   Updated: 2023/10/02 15:39:30 by nessie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,23 +27,29 @@ void	reverse_rotate(t_stack **stack)
 	return ;
 }
 
-// Décale d’une position vers le bas tous les élements de la pile a.
-// Le dernier élément devient le premier.
+/**
+ * @brief Décale d’une position vers le bas tous les élements de la pile a.
+ * 		  Le dernier élément devient le premier.
+ */
 void	rra(t_stack **a)
 {
 	reverse_rotate(a);
 	ft_putendl_fd("rra", 1);
 }
 
-// Décale d’une position vers le bas tous les élements de la pile b.
-// Le dernier élément devient le premier.
+/**
+ * @brief Décale d’une position vers le bas tous les élements de la pile b.
+ * 		  Le dernier élément devient le premier.
+ */
 void	rrb(t_stack **b)
 {
 	reverse_rotate(b);
 	ft_putendl_fd("rrb", 1);
 }
 
-// rra et rrb en même temps.
+/**
+ * @brief rra et rrb en même temps.
+ */
 void	rrr(t_stack **a, t_stack **b)
 {
 	reverse_rotate(a);
