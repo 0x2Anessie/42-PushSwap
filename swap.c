@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acatusse <acatusse@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nessie <nessie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/20 13:15:34 by acatusse          #+#    #+#             */
-/*   Updated: 2023/10/02 15:34:21 by acatusse         ###   ########.fr       */
+/*   Created: 2023/09/20 13:15:34 by nessie            #+#    #+#             */
+/*   Updated: 2023/10/02 15:34:21 by nessie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	swap(t_stack **stack)
 {
-	t_stack	*second_last;
-	t_stack	*third_last;
 	t_stack	*last;
+	t_stack	*before_last;
+	t_stack	*b_b_last;
 
 	if (stacklen(*stack) <= 1)
 		ft_putendl_fd("Stack is empty or has only one element", 1);
@@ -24,37 +24,43 @@ void	swap(t_stack **stack)
 	{
 		last = last_node(*stack);
 		last->p = *stack;
-		(*stack)->p = 0;
+		(*stack)->p = NULL;
 		*stack = last;
 	}
 	else
 	{
-		second_last = *stack;
-		while (second_last->p->p->p)
-			second_last = second_last->p;
-		third_last = second_last->p;
-		last = third_last->p;
-		second_last->p = last;
-		last->p = third_last;
-		third_last->p = 0;
+		b_b_last = *stack;
+		while (b_b_last->p->p->p)
+			b_b_last = b_b_last->p;
+		before_last = b_b_last->p;
+		last = before_last->p;
+		b_b_last->p = last;
+		last->p = before_last;
+		before_last->p = NULL;
 	}
 }
 
-// Intervertit les 2 premiers éléments au sommet de la pile a.
+/**
+ * @brief Intervertit les 2 premiers éléments au sommet de la pile a.
+ */
 void	sa(t_stack **a)
 {
 	swap(a);
 	ft_putendl_fd("sa", 1);
 }
 
-// Intervertit les 2 premiers éléments au sommet de la pile b.
+/**
+ * @brief Intervertit les 2 premiers éléments au sommet de la pile b.
+ */
 void	sb(t_stack **b)
 {
 	swap(b);
 	ft_putendl_fd("sb", 1);
 }
 
-// sa et sb en même temps.
+/**
+ * @brief sa et sb en même temps.
+ */
 void	ss(t_stack **a, t_stack **b)
 {
 	swap(a);
