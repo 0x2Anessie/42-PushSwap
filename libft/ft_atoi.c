@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nessie <nessie@42.fr>                      +#+  +:+       +#+        */
+/*   By: nessie <nessie@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 13:12:54 by nessie            #+#    #+#             */
 /*   Updated: 2023/09/20 13:12:57 by nessie           ###   ########.fr       */
