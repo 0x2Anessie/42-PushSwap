@@ -1,17 +1,11 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: nessie <nessie@student.42.fr>              +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/20 13:15:34 by nessie            #+#    #+#             */
-/*   Updated: 2023/10/02 15:34:21 by nessie           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "push_swap.h"
 
+/**
+ * @brief Intervertit les deux premiers éléments au sommet d'une stack.
+ * 		  Soit deux elements, donc on echange leur p.
+ * 		  Soit +, donc le 3e (bbl) prend le 1e (l) en p, et le 1e (l) prend le
+ * 		  2e (bl), et le 2e (bl) prend NULL.
+ */
 void	swap(t_stack **stack)
 {
 	t_stack	*last;

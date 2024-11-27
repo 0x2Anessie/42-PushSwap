@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   sort.c                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: nessie <nessie@student.42.fr>              +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/20 13:15:26 by nessie            #+#    #+#             */
-/*   Updated: 2023/10/03 19:36:20 by nessie           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "push_swap.h"
 
 int	stacklen(t_stack *stack)
@@ -29,7 +17,7 @@ int	stacklen(t_stack *stack)
 
 /**
  * @brief Fonction qui dirige les différentes stacks vers les fonctions de tri
- * 	  en fonction du nombre d'arguments.
+ * 		  en fonction du nombre d'arguments.
  */
 void	sort_a(t_stack **a, t_stack **b)
 {

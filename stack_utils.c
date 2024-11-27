@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   stack_utils.c                                      :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: nessie  <nessie@student.42.fr>             +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/20 13:14:31 by nessie            #+#    #+#             */
-/*   Updated: 2023/10/04 11:43:27 by nessie           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "push_swap.h"
 
 /**
@@ -51,7 +39,7 @@ t_stack	*last_node(t_stack *stack)
 }
 
 /**
- * @brief Ajoute un nouveau noeud à la fin d'une stack.
+ * @brief Ajoute un nouveau noeud à la fin d'une stack (le début du coup).
  *        Si la stack est vide, new_node devient le 1er et unique élément.
  */
 void	new_last_node(t_stack **stack, t_stack *new_node)

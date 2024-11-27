@@ -1,17 +1,11 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   rotate.c                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: nessie <nessie@student.42.fr>              +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/20 13:15:18 by nessie            #+#    #+#             */
-/*   Updated: 2023/10/02 15:39:01 by nessie           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "push_swap.h"
 
+/**
+ * @brief Fonction qui avance chaque element de la stack d'une position.
+ * 		  Le premier devient sont le dernier.
+ * 		  le deuxieme (bl) devient 1e et pointe sur la suite de la liste,
+ * 		  et le 1e (l) devient dernier et pointe sur null.
+ */
 void	rotate(t_stack **stack)
 {
 	t_stack	*before_last;

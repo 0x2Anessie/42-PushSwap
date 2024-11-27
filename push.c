@@ -1,17 +1,11 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: nessie <nessie@student.42.fr>              +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/20 13:14:49 by nessie            #+#    #+#             */
-/*   Updated: 2023/10/02 15:35:52 by nessie           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "push_swap.h"
 
+/**
+ * @brief Push le premier element d'une stack sur l'autre.
+ * 		  Si rien dans la stack source, print message d'erreur.
+ * 		  Cree le nouveau noeud avec new_last_node.
+ * 		  Puis on supprime le p de l'avant dernier.
+ */
 void	push(t_stack **stack_src, t_stack **stack_dest)
 {
 	t_stack	*first_node;
